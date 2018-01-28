@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Listagem</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-button full (click)="listarDispositivos()">Listar Dispositivos</button>
+
+  <ion-list *ngIf="listaConectados && listaConectados.length">
+    <ion-list-header>
+      Dispositivos Pareados
+    </ion-list-header>
+    <button ion-item *ngFor="let item of listaConectados" (click)="conectar($event, item)">
+      {{item.name}}
+    </button>
+  </ion-list>
+
+  <ion-list margin-top *ngIf="listaNaoConectados && listaNaoConectados.length">
+    <ion-list-header>
+      Dispositivos Disponiveis
+    </ion-list-header>
+    <button ion-item *ngFor="let item of listaNaoConectados" (click)="conectar($event, item)">
+      {{item.name}}
+    </button>
+  </ion-list>
+
+</ion-content>

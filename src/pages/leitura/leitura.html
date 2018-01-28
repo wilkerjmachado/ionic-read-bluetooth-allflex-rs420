@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Leitura</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h3>Recebendo dados de {{item.name}}</h3>
+
+  <button margin-top ion-button full (click)="read($event)">Atualizar</button>
+
+  <ion-list margin-top>
+    <button ion-item *ngFor="let item of listaItems">
+      {{item.codigo}}
+    </button>
+  </ion-list>
+
+</ion-content>
